@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 # memory allocator 変更
-new_alloc = torch.cuda.memory.CUDAPluggableAllocator(f'allocator.so', 'custom_malloc', 'custom_free')
+new_alloc = torch.cuda.memory.CUDAPluggableAllocator('allocator.so', 'custom_malloc', 'custom_free')
 torch.cuda.memory.change_current_allocator(new_alloc)
 
 # GPUメモリ使用量を取得する関数
